@@ -110,12 +110,12 @@ function averageWordLength(wordsArr) {
   if(wordsArr.length == 0) return null;
   
   let sum = 0;
-  for(let i = 0; i < wordsArr.length; i++) {
-    sum += wordsArr[i];
-  
-  }
 
-  let promedio = sum / wordsArr.length;
+  for(let i = 0; i < wordsArr.length; i++) {
+    sum += wordsArr[i].length;
+    }
+
+  let promedio = sum / wordsArr.length;  
   return promedio;
   
  }
@@ -130,6 +130,7 @@ function avg(mixedArr) {
   }
 
   let sum = 0;
+  
   for(let i = 0; i < mixedArr.length; i++) {
 
     if(typeof mixedArr[i] == 'number'){
@@ -143,7 +144,8 @@ function avg(mixedArr) {
     }      
 
   }
-    return sum;  
+    let promedio = sum / mixedArr.length;  
+    return promedio;
 }
 
 
@@ -168,9 +170,11 @@ function uniquifyArray(wordsUnique) {
     return null
   }
 
-  let duplicados = ''
+  let duplicados = '';
   for(let i = 0; i > wordsUnique.length; i++) {
-    
+    if(wordsUnique[i] == duplicados) {
+      
+    }
   }
 }
 
@@ -179,7 +183,11 @@ function uniquifyArray(wordsUnique) {
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(wordsFind) {
+  if(wordsFind == ''){
+    return null
+  }
+}
 
 
 
@@ -198,7 +206,14 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(wordsCount) {
+  if(wordsCount == '') {
+    return 0
+  }
+
+
+
+}
 
 
 
