@@ -73,13 +73,12 @@ function sum(mixedArr) {
     else if (typeof mixedArr[i] === 'boolean'){
       sum += Number(mixedArr[i]);
     }
-    else if (typeof mixedArr[i] === !'boolean' || !'number' || !'string' ){
-    return  null;
-    }
-    
-
+    else if (typeof mixedArr[i] === 'object' || typeof mixedArr[i] === 'array')
+      {
+       return("Unsupported data type");
+     }
   }
-    return sum;  
+  return sum;
 }
 
 
@@ -145,7 +144,7 @@ function avg(mixedArr) {
 
   }
     let promedio = sum / mixedArr.length;  
-    return promedio;
+    return promedio.toFixed(2);
 }
 
 
@@ -165,29 +164,42 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray(wordsUnique) {
-  if(wordsUnique == ''){
-    return null
+function uniquifyArray(words) {
+  newarr = [];
+  if (words.length === 0) {
+    return null;
   }
-
-  let duplicados = '';
-  for(let i = 0; i > wordsUnique.length; i++) {
-    if(wordsUnique[i] == duplicados) {
-      
+  for (let i = 0; i < words.length; i++) {
+    if (newarr.indexOf(words[i]) === -1) {
+      newarr.push(words[i]);
     }
   }
+  return newarr;
 }
+uniquifyArray(wordsUnique)
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist(wordsFind) {
-  if(wordsFind == ''){
-    return null
+function doesWordExist(words, word) {
+  let count = 0;
+  if (words.length === 0) {
+    return null;
   }
+  for (let i = 0; i < words.length; i++) {
+    if (words[i] === word) {
+      count++;
+    }
+  }
+  if (count > 0) {
+    return true;
+  }
+  return false;
 }
+
+
 
 
 
@@ -206,14 +218,24 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes(wordsCount) {
-  if(wordsCount == '') {
-    return 0
+function howManyTimes(words, word) {
+  let count = 0;
+  if (words.length === 0) {
+    return 0;
   }
-
-
-
+  for (let i = 0; i < words.length; i++) {
+    if (words[i] === word) {
+      count ++;
+    }
+  }
+  if (count === 1) {
+    return 1;
+  } else if (count === 0) {
+    return 0;
+  }
+   return count;
 }
+
 
 
 
